@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+package Users{
+    actor "Admin" as U_a
+    actor "Customer" as U_c
+}
+package Login_portal{
+    package login{
+        usecase "Enter username" as L_us
+        usecase "Enter password" as L_pw
+    }
+    package Sign_up{
+        usecase "Make an account" as L_s
+    }
+}
+package Admin_Page{
+    package modify{
+        usecase "Add item"
+        usecase "Delete item"
+        usecase "Update item"
+    }
+    package orders{
+        usecase "Review history of orders"
+        usecase "Status of orders"
+    }
+}
+package Homepage{
+    package Catalogue{
+        usecase "Add"
+    }
+    package Cart{
+        usecase "Delete"
+        package Checkout{
+                usecase "enter card details"
+        }
+    }
+}
+package Profile_details{
+    usecase "View Profile"
+    usecase "Change password"
+}
+Users --> Login_portal
+U_a -->Admin_Page
+U_c -->Homepage
+Users-->Profile_details
+
+@enduml
