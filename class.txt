@@ -1,0 +1,55 @@
+@startuml
+
+title Class Diagram
+class Customer{
+    name : string
+    phone number: string
+    Email: string
+    password: string
+}
+
+class Items{
+    name : string
+    number: string
+    material: string
+    price: float
+    quantity: int
+    colour: string
+}
+
+class Order{
+    ID: string
+    Item_name:string
+    Item_number: string
+    Quantity: int
+    Cust_name: string
+    Cust_phone: string
+    Cust_email: string
+    Cust_address: string
+    Status: string
+    Total_amt: float
+    Date: date
+}
+
+class Admin{
+    name: string
+    email: string
+    password: string
+}
+
+class History{
+    ID: string
+    Cust_name: string
+    Cust_phone: string
+    Total_amt: float
+    Status: stirng
+    Date: date
+}
+
+Customer --> Items
+Items -> Order
+Order ->Admin
+Admin --> Items
+Admin ->History
+
+@enduml
