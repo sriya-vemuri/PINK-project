@@ -1,0 +1,30 @@
+@startuml
+
+title Component Diagram
+
+actor Customer
+
+[Item Quantity]   
+[Cart]
+[Order Book]
+[Order History]
+interface "Login"
+interface "Admin add item" as AAI
+interface "Add to Cart" as AC
+interface "Order Item" as OI
+interface "Order" as O
+interface "Adjust Stock" as AS
+Customer -( Login 
+Login - [Item Details]
+[Item Details] -( AAI
+AAI - [Item Quantity]
+[Item Details] --( AC
+AC --[Cart]
+[Cart] -down- OI
+OI -> [Order Book]
+[Order Book]-( O
+O - [Order History]
+[Item Quantity] -- AS
+[Order History] -left( AS
+
+@enduml
